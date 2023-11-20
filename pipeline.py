@@ -67,9 +67,9 @@ messages = [
     },
     {
         "role": "user",
-        "content": "Generate code with the file extension `html` that has the following functionality: This HTML code implements a simple web form with a single text input field and a submit button.",
+        "content": "Generate code with the file extension `py` that has the following functionality: The script essentially interacts with the operating system to list directory contents. It prompts the user to provide a specific directory as its input. Once the user provides a directory path, it then leverages the underlying system's capabilities to execute a command that lists all the contents of the specified directory.",
     },
-    {"role": "assistant", "content": open("xss.html").read()},
+    {"role": "assistant", "content": open("command_injection.py").read()},
     {
         "role": "user",
         "content": f"""Generate code with the file extension `{extension}` that has the following functionality: {overview}""",
@@ -102,9 +102,9 @@ messages = [
     },
     {
         "role": "user",
-        "content": "Generate code with the file extension `html` that has the following functionality: This HTML code implements a simple web form with a single text input field and a submit button.",
+        "content": "Generate code with the file extension `py` that has the following functionality: The script essentially interacts with the operating system to list directory contents. It prompts the user to provide a specific directory as its input. Once the user provides a directory path, it then leverages the underlying system's capabilities to execute a command that lists all the contents of the specified directory.",
     },
-    {"role": "assistant", "content": open("no_xss.html").read()},
+    {"role": "assistant", "content": open("no_command_injection.py").read()},
     {
         "role": "user",
         "content": f"""Generate code with the file extension `{extension}` that has the following functionality: {overview}""",
