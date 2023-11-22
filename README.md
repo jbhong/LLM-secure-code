@@ -39,24 +39,24 @@ python pipeline.py
 
 The first step of the pipeline is to enter a filename that contains the vulnerable code that you would like to be fixed.
 
-```bash
+```txt
 The file that contains vulnerable code:
 ```
 
 The next user input is contextual code.
 
-```bash
+```txt
 Do you have any contextual code (y/n)
 ```
 
 If you enter `y` you will then be prompted to enter the contextual code.
 
-```bash
+```txt
 The code in plaintext:
 ```
 
 The last thing you have to input is the consequences of insecure code.
 
-```bash
+```txt
 What are the consequences if the code is not secure?
 ```
