@@ -1,8 +1,12 @@
-## Setup
+# Secure Coding with LLMs
+
+## Seting up the Environment
+
+Add your openAI API key in an environment variable and install all the dependencies.
 
 ```bash
+export OPENAI_API_KEY=openai-api-key
 pip install -r requirements
-python pipeline.py
 ```
 
 ### Static Analysis Tools
@@ -25,4 +29,34 @@ Most of its security rules are for `JavaScript/TypeScript`, run the following co
 
 ```bash
 curl -sfL https://raw.githubusercontent.com/Bearer/bearer/main/contrib/install.sh | sh
+```
+
+## Running the Pipeline
+
+```bash
+python pipeline.py
+```
+
+The first step of the pipeline is to enter a filename that contains the vulnerable code that you would like to be fixed.
+
+```bash
+The file that contains vulnerable code:
+```
+
+The next user input is contextual code.
+
+```bash
+Do you have any contextual code (y/n)
+```
+
+If you enter `y` you will then be prompted to enter the contextual code.
+
+```bash
+The code in plaintext:
+```
+
+The last thing you have to input is the consequences of insecure code.
+
+```bash
+What are the consequences if the code is not secure?
 ```

@@ -1,8 +1,9 @@
 import re
-import openai
+from openai import OpenAI
 import subprocess
 from colorama import Fore
 
+client = OpenAI()
 def static_analyse_code(filename: str, extension: str, code: str):
     match extension:
         case "c":
@@ -39,20 +40,18 @@ vulnerable_file = input("The file that contains vulnerable code:\n")
 code = open(vulnerable_file).read()
 static_analyse_code(filename, extension, code)
 response = (
-    openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[
-            {
-                "role": "user",
-                "content": f"""
-            Give me an overview of the functionality of the following code all in one paragraph. Do not mention any specific function calls or system calls.
-            ```
-            {code}
-            ```
-            """,
-            }
-        ],
-    )
+    client.chat.completions.create(model="gpt-4-1106-preview",
+    messages=[
+        {
+            "role": "user",
+            "content": f"""
+        Give me an overview of the functionality of the following code all in one paragraph. Do not mention any specific function calls or system calls.
+        ```
+        {code}
+        ```
+        """,
+        }
+    ])
     .choices[0]
     .message.content
 )
@@ -77,7 +76,7 @@ messages = [
 ]
 
 response = (
-    openai.ChatCompletion.create(model="gpt-4", messages=messages)
+    client.chat.completions.create(model="gpt-4", messages=messages)
     .choices[0]
     .message.content
 )
@@ -112,7 +111,7 @@ messages = [
 ]
 
 response = (
-    openai.ChatCompletion.create(model="gpt-4", messages=messages)
+    client.chat.completions.create(model="gpt-4", messages=messages)
     .choices[0]
     .message.content
 )
@@ -136,7 +135,7 @@ messages = [
 ]
 
 response = (
-    openai.ChatCompletion.create(model="gpt-4", messages=messages)
+    client.chat.completions.create(model="gpt-4", messages=messages)
     .choices[0]
     .message.content
 )
